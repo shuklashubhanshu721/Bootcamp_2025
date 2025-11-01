@@ -1,2 +1,6 @@
 fastapi
 uvicorn
+openai==2.6.1
+# Dependencies for Sprint 1 Authentication
+passlib[bcrypt]==1.7.4
+python-jose==3.3.0

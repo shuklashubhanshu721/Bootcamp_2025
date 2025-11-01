@@ -4,15 +4,11 @@ from app.query.routes import router as query_router
 from app.feedback.routes import router as feedback_router
 from app.knowledge.routes import router as knowledge_router
 from app.admin.routes import router as admin_router
+from app.health.routes import router as health_router
 
-app = FastAPI(title="Bootcamp_2025 API")
+from app import app as main_app
 
-# Register Routers
-app.include_router(auth_router, prefix="/auth", tags=["Authentication"])
-app.include_router(query_router, prefix="/query", tags=["Queries"])
-app.include_router(feedback_router, prefix="/feedback", tags=["Feedback"])
-app.include_router(knowledge_router, prefix="/knowledge", tags=["Knowledge"])
-app.include_router(admin_router, prefix="/admin", tags=["Admin"])
+app = main_app
 
 @app.get("/")
 def read_root():
