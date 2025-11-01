@@ -1,52 +1,126 @@
-# Bootcamp_2025 Backend
+# Bootcamp 2025 – Full Stack Project
 
-## Overview
-This is the backend for the **Bootcamp_2025** project built using **FastAPI**. It provides the API layer for the application and is configured for deployment on **Render**.
-
----
-
-## Project Structure
-```
-Bootcamp_2025/
-├── app/
-│   ├── __init__.py
-│   └── main.py
-├── requirements.txt
-├── render.yaml
-└── README.md
-```
+This repository contains the complete implementation for the **Itrade Bootcamp 2025** project — a modular full-stack system designed to demonstrate backend microservices and a modern frontend framework.
 
 ---
 
-## Getting Started
+## 🧱 Project Overview
 
-### 1. Setup Virtual Environment
-```bash
-python -m venv venv
-source venv/bin/activate      # On Windows: venv\Scripts\activate
-```
+The project is divided into two main components:
 
-### 2. Install Dependencies
-```bash
-pip install -r requirements.txt
-```
+1. **Backend (FastAPI)** — provides modular REST API services.
+2. **Frontend (Next.js + TypeScript)** — provides a modern UI powered by React and Shadcn/UI components.
 
-### 3. Run the Development Server
-```bash
-uvicorn app.main:app --reload
-```
-Access the server at [http://127.0.0.1:8000](http://127.0.0.1:8000)
+This architecture supports scalability, modular separation, and clear service boundaries between feature modules like **Auth**, **Admin**, **Knowledge**, **Queries**, and **Feedback**.
 
 ---
 
-## Deployment
+## ⚙️ Tech Stack
 
-The included `render.yaml` ensures Render detects the configuration automatically for deployment.
+### **Frontend**
+- [Next.js 14+](https://nextjs.org/)
+- TypeScript
+- Tailwind CSS
+- Shadcn/UI component system
+- Node.js 20.9.0 (required)
 
-*Render service details:*
-- Language: **Python**
-- Framework: **FastAPI**
-- Start command: `uvicorn app.main:app --host 0.0.0.0 --port 10000`
-- Plan: **Free tier**
+### **Backend**
+- [FastAPI](https://fastapi.tiangolo.com/)
+- Python 3.10+
+- MongoDB Atlas (via `pymongo`)
+- Dotenv-based configuration
+- Modular route system
 
-This setup eliminates the “No render.yaml found on main branch” error during deployment.
+---
+
+## 🚀 Running the Application
+
+### 🖥️ Prerequisites
+Make sure you have the following installed:
+- **Node.js v20.9.0 or higher** (`nvm install 20.9.0`)
+- **Python 3.10+**
+- **MongoDB connection string** set in `.env`
+
+### 🔹 Backend Setup
+
+```bash
+cd app
+python3 -m venv venv
+source venv/bin/activate
+pip install -r ../requirements.txt
+uvicorn main:app --reload
+```
+
+The backend server will start at:
+> http://127.0.0.1:8000
+
+You can check API docs at:
+> http://127.0.0.1:8000/docs
+
+---
+
+### 🔹 Frontend Setup
+
+```bash
+cd frontend
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+nvm use 20.9.0
+npm install
+npm run dev
+```
+
+Access the frontend at:
+> http://localhost:3000
+
+---
+
+## 🧩 Project Modules
+
+**Backend Modules:**
+- `auth` – User authentication and session handling
+- `query` – Query management logic
+- `feedback` – Feedback collection endpoints
+- `knowledge` – Knowledge base services
+- `admin` – Admin and data management endpoints
+
+**Frontend Modules:**
+- `src/app` – Application routes and layout
+- `src/components` – UI components (Button, Card, Input)
+- `src/lib` – Utility libraries and helpers
+
+---
+
+## 🧰 Environment Variables
+
+Create a `.env` file at the project root or within `/app` containing:
+
+```
+DATABASE_URL=<your_mongodb_connection_string>
+SECRET_KEY=<fastapi_secret_key>
+```
+
+---
+
+## 🧠 Development Notes
+
+- Always run the backend in a virtual environment.
+- Before running frontend commands, ensure Node 20.9.0 is selected via nvm.
+- Use `requirements.txt` for dependency version consistency.
+- Ensure both frontend and backend are active for full functionality.
+
+---
+
+## 📦 Deployment Notes
+
+After local testing is complete:
+1. Commit all sprint changes using the provided sprint commit template.
+2. Push to the sprint branch.
+3. Delegate deployment to the **Infra Architect mode** to publish:
+   - Frontend → Vercel  
+   - Backend → Render
+
+---
+
+**Maintainer:** Shubhanshus  
+© 2025 Itrade Bootcamp

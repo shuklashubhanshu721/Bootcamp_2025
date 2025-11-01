@@ -1,0 +1,36 @@
+# Root .gitignore for Bootcamp_2025
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Dependency directories
+node_modules/
+venv/
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Logs
+logs/
+*.log
+
+# IDE and System files
+.vscode/
+.idea/
+.DS_Store
+
+# Build outputs
+dist/
+build/
+*.egg-info/
+coverage/
+
+# Byte-compiled / optimized files
+*.pyc
+
+# Frontend build files
+frontend/.next/
+frontend/out/
+frontend/build/
