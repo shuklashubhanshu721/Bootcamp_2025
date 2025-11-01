@@ -10,6 +10,14 @@ from app import app as main_app
 
 app = main_app
 
+# Register route modules
+app.include_router(auth_router)
+app.include_router(query_router)
+app.include_router(feedback_router)
+app.include_router(knowledge_router)
+app.include_router(admin_router)
+app.include_router(health_router)
+
 @app.get("/")
 def read_root():
     return {"message": "Bootcamp_2025 API is running successfully"}

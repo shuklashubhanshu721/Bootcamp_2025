@@ -11,7 +11,7 @@ load_dotenv()
 router = APIRouter(prefix="/api/v1/query", tags=["Query"])
 db = database_module.get_db()
 
-if db:
+if db is not None:
     queries_collection = db["support_queries"]
     responses_collection = db["generated_responses"]
     citations_collection = db["citations"]
